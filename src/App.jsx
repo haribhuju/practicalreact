@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="container py-4">
+    <div className="container py-4 mx-auto">
       <HomePage />
     </div>
   );
