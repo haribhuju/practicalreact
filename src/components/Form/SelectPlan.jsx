@@ -2,11 +2,18 @@ import React from "react";
 import Header from "./Header";
 import Button from "../Button";
 import SelectPlanCard from "./SelectPlanCard";
+import { useDispatch } from "react-redux";
+import { decrement, increment } from "../../store/fetaures/step";
 
 const TTITLE = "Select your plan";
 const DESCRIPTION = "You have the option of monthly or yearly billing.";
 
 const SelectPlan = () => {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(increment());
+  }
   return (
     <div className=" flex flex-col h-full">
       <div className="space-y-2  mt-10">
@@ -24,10 +31,13 @@ const SelectPlan = () => {
       </div>
       <div className="mt-auto mb-4 ">
         <div className="flex justify-between">
-          <button className="text-base font-medium text-[#9699AA]">
+          <button
+            className="text-base font-medium text-[#9699AA]"
+            onClick={() => dispatch(decrement())}
+          >
             Go Back
           </button>
-          <Button>Next Step </Button>
+          <Button onData={handleClick}>Next Step </Button>
         </div>
       </div>
     </div>

@@ -6,13 +6,19 @@ const steps = [
   { id: 4, name: "Summary" },
 ];
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ stepCount }) => {
   return (
     <>
       <div className="flex flex-col gap-4">
         {steps.map((item) => (
           <div className=" flex gap-4 items-center " key={item.id}>
-            <button className="text-white rounded-full w-[33px] h-[33px] border border-white bg-transparent flex-shrink-0">
+            <button
+              className={
+                stepCount === item.id
+                  ? "rounded-full w-[33px] h-[33px] bg-[#bfe2fd] "
+                  : "text-white rounded-full w-[33px] h-[33px] border border-white bg-transparent flex-shrink-0"
+              }
+            >
               {item.id}
             </button>
             <div>

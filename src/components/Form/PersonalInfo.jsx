@@ -1,11 +1,18 @@
 import React from "react";
 import Button from "../Button";
 import Header from "./Header";
+import { useDispatch } from "react-redux";
+import { increment } from "../../store/fetaures/step";
 
 const TTITLE = "Personal Info";
 const DESCRIPTION = "Please provide your name, email address, and phone number";
 
 const PersonalInfo = () => {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(increment());
+  }
   return (
     <div className=" flex flex-col h-full">
       <div className="space-y-2  mt-10">
@@ -50,7 +57,7 @@ const PersonalInfo = () => {
         </div>
       </div>
       <div className="mt-auto mb-4 self-end">
-        <Button>Next Step </Button>
+        <Button onData={handleClick}>Next Step </Button>
       </div>
     </div>
   );

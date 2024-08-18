@@ -1,11 +1,18 @@
 import React from "react";
 import Header from "./Header";
 import Button from "../Button";
+import { useDispatch } from "react-redux";
+import { decrement, increment } from "../../store/fetaures/step";
 
 const TTITLE = "Finishing up";
 const DESCRIPTION = "Double-check everything looks OK before confirming.";
 
 const Summary = () => {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(increment());
+  }
   return (
     <div className=" flex flex-col h-full">
       <div className="space-y-2  mt-10">
@@ -45,10 +52,13 @@ const Summary = () => {
       </div>
       <div className="mt-auto mb-4 ">
         <div className="flex justify-between">
-          <button className="text-base font-medium text-[#9699AA]">
+          <button
+            className="text-base font-medium text-[#9699AA]"
+            onClick={() => dispatch(decrement())}
+          >
             Go Back
           </button>
-          <Button>Confirm</Button>
+          <Button onData={handleClick}>Confirm</Button>
         </div>
       </div>
     </div>
