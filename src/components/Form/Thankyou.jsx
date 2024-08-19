@@ -1,7 +1,15 @@
 import React from "react";
 import check from "../../assets/check.svg";
+import Button from "../Button";
+import { useDispatch } from "react-redux";
+import { reset } from "../../store/fetaures/step";
 
 const Thankyou = () => {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(reset());
+  }
   return (
     <div className="flex flex-col items-center gap-8">
       <img src={check} alt="svg" />
@@ -13,6 +21,7 @@ const Thankyou = () => {
           at support@loremgaming.com.
         </p>
       </div>
+      <Button onData={handleClick}>Back To Step 1</Button>
     </div>
   );
 };

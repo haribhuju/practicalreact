@@ -58,7 +58,9 @@ const Summary = () => {
           >
             Go Back
           </button>
-          <Button onData={handleClick}>Confirm</Button>
+          <Button onData={handleClick} step={4}>
+            Confirm
+          </Button>
         </div>
       </div>
     </div>
