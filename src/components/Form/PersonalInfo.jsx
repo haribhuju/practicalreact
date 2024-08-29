@@ -21,8 +21,8 @@ const PersonalInfo = () => {
     resolver: yupResolver(personalInfoSchema),
   });
 
-  function handleClick(data) {
-    console.log(data);
+  function handleClick() {
+    console.log(errors);
     dispatch(increment());
   }
 
